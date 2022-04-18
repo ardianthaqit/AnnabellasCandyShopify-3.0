@@ -36,7 +36,7 @@
   }
 {%- endstyle -%}
 
-<footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+<footer class="footer gradient section-{{ section.id }}-padding footer-class" style="background-color:{{ section.settings.colorfooter }}">
   {%- if section.blocks.size > 0 or section.settings.newsletter_enable or section.settings.show_social -%}
     <div class="footer__content-top page-width">
       {%- if section.blocks.size > 0 -%}
@@ -330,8 +330,8 @@
           </div>
         {%- endif -%}
         <div class="footer__copyright caption">
-          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-          <small class="copyright__content">{{ powered_by_link }}</small>
+          <small class="copyright__content">&copy; {{ 'now' | date: "%Y" }} Annabelle Candy Company. Made by Hand in Hayward, California.
+          </small>
         </div>
       </div>
     </div>
@@ -475,6 +475,11 @@
     }
   ],
   "settings": [
+  {
+    "type":"color",
+    "id":"colorfooters",
+    "label":"Choose Background Color"
+  },
     {
       "type": "select",
       "id": "color_scheme",

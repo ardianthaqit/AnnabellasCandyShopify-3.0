@@ -1,0 +1,4 @@
+{% assign text = text | replace: "[[", "<span class='bluefont text-center'>" | replace: "((", "<span class='red-text bluefont'>"  %} 
+{% assign text = text | replace: "]]", "</span>" | replace: "))", "</span>"  %} 
+{{ text  }}
+

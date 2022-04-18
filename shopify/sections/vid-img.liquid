@@ -1,0 +1,52 @@
+<div class="img-video" {% if section.settings.imagebg != blank %} style="background-image: url('{{ section.settings.imagebg | img_url: image_size }}');" {% endif %} >
+    {% if section.settings.title != blank %}<h1 class="bigfont">  {% render 'spanfont', text: section.settings.title %} </h1>{% endif %}
+    {%- if section.settings.image != blank -%}
+   <div class="flex justify-center"> {% render 'lazy-images', image: section.settings.image, class: 'w-full h-1/2' %} </div>
+  {%- endif -%}
+  {% if section.settings.subtitle != blank %} <div class="subtitle-text py-20"> {{ section.settings.subtitle }} </div> {% endif %}
+   <a class="button3d" {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
+    {{ section.settings.button_label | escape }}
+  </a>
+</div>
+{% schema %}
+{
+  "name": "Video and Image",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "imagebg",
+        "label": "Background Image"
+      },
+      {
+        "type": "richtext",
+        "id": "title",
+        "label": "title"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "image"
+      },
+      {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Subtitle"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "url"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "button label"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Video and Image"
+    }
+  ]
+}
+{% endschema %}
