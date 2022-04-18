@@ -1,0 +1,53 @@
+<div class="flex bg-black">
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+  <div>
+    1
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "image test",
+  "settings": [
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+	  {
+        "type": "url",
+        "id": "linku",
+        "label": "Url"
+      },
+	  {
+        "type": "text",
+        "id": "labellink",
+        "label": "Label of Link"
+      },
+	  {
+        "type": "color",
+        "id": "bg",
+        "label": "choose Background color"
+      }
+  ],
+  "presets": [
+    {
+      "name": "image test"
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
