@@ -1,0 +1,116 @@
+<div class="
+{% if section.settings.backgroundcolor == "red" %} red-bg {% endif %} 
+{% if section.settings.backgroundcolor == "mint" %} mint-bg {% endif %}
+{% if section.settings.backgroundcolor == "blue" %} blue-bg {% endif %}
+{% if section.settings.backgroundcolor == "grey" %} grey-bg {% endif %}
+">
+    <div class="block md:flex page-width 
+{% if section.settings.direction == "right" %} flex-row {% endif %} 
+{% if section.settings.direction == "left" %} flex-row-reverse {% endif %}">
+    <div class="md:w-2/3 w-full">
+        {% render 'lazy-images', image: section.settings.imagebg, class: 'w-full md:py-24' %}
+    </div>
+    <div class="md:w-1/3 w-full block pt-40  items-center">
+           <div class="">
+            {% if section.settings.title != blank %} <div class="titlerock" style="color: {{ section.settings.titlecolor }};"> {{ section.settings.title }} </div> {% endif %}
+            {% if section.settings.desc != blank %} <div  style="color: {{ section.settings.desccolor }};" class="pb-2"> {{ section.settings.desc }} </div> {% endif %}
+            <div class="mt-8">
+                <a class="btnrockyroad " style="background-color: {{ section.settings.bgbutton }};" {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
+                    {{ section.settings.button_label | escape }}
+                  </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Rocky Road",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "imagebg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "titlecolor",
+        "label": "Title Color"
+      },
+      {
+        "type": "richtext",
+        "id": "desc",
+        "label": "description"
+      },
+      {
+        "type": "color",
+        "id": "desccolor",
+        "label": "Desc Color"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "url"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "button label"
+      },
+      {
+        "type": "color",
+        "id": "bgbutton",
+        "label": "Button Color"
+      },
+      {
+        "type": "select",
+        "id": "direction",
+        "options": [
+          {
+            "value": "left",
+            "label": "Change on left"
+          },
+          {
+            "value": "right",
+            "label": "Change on right"
+          }
+        ],
+        "label": "Change direction of image and text"
+      },
+      {
+        "type": "select",
+        "id": "backgroundcolor",
+        "options": [
+          {
+            "value": "red",
+            "label": "Red"
+          },
+          {
+            "value": "mint",
+            "label": "Mint"
+          },
+          {
+            "value": "blue",
+            "label": "Blue"
+          },
+          {
+            "value": "grey",
+            "label": "Grey"
+          }
+        ],
+        "label": "Change background color"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Rocky Road"
+    }
+  ]
+}
+{% endschema %}
+

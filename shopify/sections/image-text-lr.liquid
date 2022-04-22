@@ -1,0 +1,59 @@
+<div class="block md:flex w-full {% if section.settings.direction == "right" %} flex-row {% endif %} {% if section.settings.direction == "left" %} flex-row-reverse {% endif %}">
+    <div class="md:w-2/4 w-full">
+        {% render 'lazy-images', image: section.settings.imagebg, class: 'w-full' %}
+    </div>
+    <div class="md:w-2/4 w-full flex flex-col	justify-center items-center bg-greygrey">
+           <div class="w-8/12">
+            {% if section.settings.year != blank %} <div class="year">{{ section.settings.year }}</div> {% endif %}
+            {% if section.settings.title != blank %} <div class="titleunderyear" > {{ section.settings.title }} </div> {% endif %}
+            {% if section.settings.desc != blank %} <div> {{ section.settings.desc }} </div> {% endif %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+  "name": "Text and Image LR",
+  "settings": [
+      {
+        "type": "image_picker",
+        "id": "imagebg",
+        "label": "Image"
+      },
+      {
+        "type": "text",
+        "id": "year",
+        "label": "year"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "title"
+      },
+      {
+        "type": "richtext",
+        "id": "desc",
+        "label": "description"
+      },
+      {
+        "type": "select",
+        "id": "direction",
+        "options": [
+          {
+            "value": "left",
+            "label": "Change on left"
+          },
+          {
+            "value": "right",
+            "label": "Change on right"
+          }
+        ],
+        "label": "Change direction of image and text"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Text and Image LR"
+    }
+  ]
+}
+{% endschema %}
