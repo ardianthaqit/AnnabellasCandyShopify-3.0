@@ -1,0 +1,48 @@
+<div style="background-color: {{ section.settings.bgcolor }}; height:60px;" >
+    <div class="flex justify-center h-full items-center">
+        {% if section.settings.socialicon != blank %}
+      {% if section.settings.socialurl != blank %} <a href="{{ section.settings.socialurl }}">  <div>{{ section.settings.socialicon }}</div> </a> {% endif %}
+        {% endif %}
+    </div>
+</div>
+<div class="relative social-icon">
+    <div class="nectar-shape-divider-wrap ">
+        {{ section.settings.svgradius }}
+</div>
+</div>
+{% schema %}
+{
+    "name": "Social section",
+    "settings": [
+          {
+              "type": "color",
+              "id": "bgcolor",
+              "label": "Background Color"
+          },
+          {
+            "type": "html",
+            "id": "socialicon",
+            "label": "Social Icon",
+            "info":"SVG code"
+        },
+        {
+            "type": "url",
+            "id": "socialurl",
+            "label": "Social Url"
+        },
+        {
+            "type": "html",
+            "id": "svgradius",
+            "label": "svg",
+            "info":"SVG code"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Social section"
+      }
+    ]
+  }
+  {% endschema %}
+  
+  

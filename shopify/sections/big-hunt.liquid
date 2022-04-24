@@ -1,0 +1,114 @@
+<div style="background-color: {{ section.settings.bgcolor }};">
+    <div class="block md:flex page-width 
+{% if section.settings.direction == "right" %} flex-row {% endif %} 
+{% if section.settings.direction == "left" %} flex-row-reverse {% endif %}">
+    <div class="md:w-2/4 w-full">
+        {% render 'lazy-images', image: section.settings.imagebg, class: 'w-full h-full' %}
+    </div>
+    <div class="md:w-2/4 w-full block pt-40  items-center">
+           <div class="">
+        
+            {% if section.settings.title != blank %} <div class="titlebighunk text-center" style="color: {{ section.settings.titlecolor }};"> {{ section.settings.title }} </div> {% endif %}
+            {% if section.settings.desc != blank %} <div  style="color: {{ section.settings.desccolor }};" class="pb-2 text-center"> {{ section.settings.desc }} </div> {% endif %}
+            <!-- <div class="mt-8">
+                <a class="btnrockyroad " style="background-color: {{ section.settings.bgbutton }};" {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %}>
+                    {{ section.settings.button_label | escape }}
+                  </a>
+            </div> -->
+            <div class="inner-wrap flex justify-center"  bis_skin_checked="1">
+				<div class="back-3d" style="transform-origin: 50% 50% -27px;" bis_skin_checked="1">
+					<svg viewBox="0 0 89.546875 54" style="width: 89.5469px; height: 54px;">
+						<rect stroke="{{ section.settings.bgbutton }}" stroke-width="8" fill="transparent" width="100%" height="100%"></rect>
+						<text class="button-text" fill="{{ section.settings.textbuttoncolor }}" text-anchor="middle" font-size="16" transform="matrix(1 0 0 1 44.7734375 32.72727272727273)">YUM!</text>
+					</svg>
+				</div>
+			</div>
+            {% render 'lazy-images', image: section.settings.choco, class: 'w-full h-full' %}
+        </div>
+    </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Big Hunk",
+  "settings": [
+        {
+            "type": "color",
+            "id": "bgcolor",
+            "label": "Background Color"
+        },
+      {
+        "type": "image_picker",
+        "id": "imagebg",
+        "label": "Image"
+      },
+
+      {
+        "type": "image_picker",
+        "id": "choco",
+        "label": "Choco Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "color",
+        "id": "titlecolor",
+        "label": "Title Color"
+      },
+      {
+        "type": "richtext",
+        "id": "desc",
+        "label": "description"
+      },
+      {
+        "type": "color",
+        "id": "desccolor",
+        "label": "Desc Color"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "url"
+      },
+      {
+        "type": "text",
+        "id": "button_label",
+        "label": "button label"
+      },
+      {
+        "type": "color",
+        "id": "textbuttoncolor",
+        "label": "Text button Color"
+      },
+      {
+        "type": "color",
+        "id": "bgbutton",
+        "label": "Button Color"
+      },
+      {
+        "type": "select",
+        "id": "direction",
+        "options": [
+          {
+            "value": "left",
+            "label": "Change on left"
+          },
+          {
+            "value": "right",
+            "label": "Change on right"
+          }
+        ],
+        "label": "Change direction of image and text"
+      }
+  ],
+  "presets": [
+    {
+      "name": "Big Hunk"
+    }
+  ]
+}
+{% endschema %}
+
